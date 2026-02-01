@@ -1,286 +1,643 @@
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Pushpraj%20Singh&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=gradient" alt="Header" />
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pushpraj Singh - Android & Flutter Developer Portfolio">
+    <meta name="keywords" content="Android Developer, Flutter Developer, APK Reverse Engineering, Mobile Apps">
+    <meta name="author" content="Pushpraj Singh">
+    <title>Pushpraj Singh - Android & Flutter Developer</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 217, 255, 0.2);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #00d9ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        
+        nav a:hover {
+            background: rgba(0, 217, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            background: linear-gradient(45deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            color: #00d9ff;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.4s ease;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1.6s ease;
+        }
+        
+        .social-links a {
+            color: #00d9ff;
+            font-size: 2rem;
+            transition: all 0.3s;
+            padding: 1rem;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-links a:hover {
+            background: rgba(0, 217, 255, 0.3);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+        
+        /* Skills Section */
+        .skills {
+            padding: 100px 5%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .skill-card {
+            background: rgba(0, 217, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 217, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.3);
+        }
+        
+        .skill-card i {
+            font-size: 3rem;
+            color: #00d9ff;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 5%;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background: rgba(0, 217, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 217, 255, 0.3);
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #00d9ff22, #00ff8822);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .project-header h3 {
+            font-size: 1.5rem;
+            color: #00d9ff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-body {
+            padding: 2rem;
+        }
+        
+        .project-body p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(45deg, #00d9ff, #00ff88);
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.5);
+        }
+        
+        .tech-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background: rgba(0, 217, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #00d9ff;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 5%;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-info p {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-btn {
+            padding: 1rem 3rem;
+            background: linear-gradient(45deg, #00d9ff, #00ff88);
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.5);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem 5%;
+            text-align: center;
+            color: #aaa;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<h1 align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=32&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=Hi+👋+I'm+Pushpraj+Singh;Android+%26+Flutter+Developer;APK+Reverse+Engineering+Enthusiast;Building+Amazing+Mobile+Apps!" alt="Typing SVG" />
-</h1>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>👋 Pushpraj Singh</h1>
+            <h2>Android & Flutter Developer</h2>
+            <p>Building innovative mobile applications with passion for APK Reverse Engineering</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/Pushprajs012" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/pushprajs012" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/pushprajs012" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/pushprajs012" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:pushprajs012@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linktr.ee/pushprajs012" target="_blank" title="Linktree">
+                    <i class="fas fa-link"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=pushprajs012&label=Profile%20views&color=00D9FF&style=for-the-badge" alt="Profile views" />
-  <img src="https://img.shields.io/github/followers/pushprajs012?label=Followers&style=for-the-badge&color=00D9FF" alt="followers" />
-  <img src="https://img.shields.io/github/stars/pushprajs012?label=Stars&style=for-the-badge&color=00D9FF" alt="stars" />
-</p>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2 class="section-title">🛠️ Tech Stack</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-android"></i>
+                <h3>Android</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Flutter</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Kotlin</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-fire"></i>
+                <h3>Firebase</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>SQLite</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-git-alt"></i>
+                <h3>Git</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>APK Reverse</h3>
+            </div>
+        </div>
+    </section>
 
-<img align="right" alt="Coding" width="400" src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/master/code.gif">
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">📱 Live Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>🎯 Ritanya Sanstha</h3>
+                </div>
+                <div class="project-body">
+                    <p>Alumni network app with video calling, Firebase notifications, and real-time chat features.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Android</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Java</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.ritanyasanstha" target="_blank" class="btn">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-## 👨‍💻 About Me
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>💼 Quotation Management</h3>
+                </div>
+                <div class="project-body">
+                    <p>Platform for managing and comparing car quotations with cross-platform support.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Cross-Platform</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.quotationapp.quotationapp" target="_blank" class="btn">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                        <a href="https://apps.apple.com/us/app/quotation-management/id6745692463" target="_blank" class="btn">
+                            <i class="fab fa-app-store-ios"></i> App Store
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-- 🔥 Currently working on **Quotation Management Flutter App**
-- 📱 Passionate **Android & Flutter Developer**
-- 🔓 APK Reverse Engineering Enthusiast
-- 🎯 Love creating innovative mobile solutions
-- 💬 Ask me about **Android Development (Java, Kotlin) & Flutter**
-- 📧 Reach me at **pushprajs012@gmail.com**
-- 🌐 Portfolio: [linktr.ee/pushprajs012](https://linktr.ee/pushprajs012)
-- ⚡ Fun fact: I turn coffee into code ☕️
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>⚖️ Bar Association Bharatpur</h3>
+                </div>
+                <div class="project-body">
+                    <p>Official app for Bar Association Samiti with circulars and information management.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">iOS</span>
+                        <span class="tech-tag">Android</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.mtt.barassociationbharatpur" target="_blank" class="btn">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                        <a href="https://apps.apple.com/in/app/bar-association-bharatpur/id6758202475" target="_blank" class="btn">
+                            <i class="fab fa-app-store-ios"></i> App Store
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-<br clear="right"/>
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>🏏 DPS Sports Complex</h3>
+                </div>
+                <div class="project-body">
+                    <p>Sports management and booking platform with real-time updates and notifications.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.mtt.dpsSportsComplex" target="_blank" class="btn">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                        <a href="https://apps.apple.com/in/app/dps-sports-complex/id6751436689" target="_blank" class="btn">
+                            <i class="fab fa-app-store-ios"></i> App Store
+                        </a>
+                    </div>
+                </div>
+            </div>
 
----
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>🕉️ Divyadham Mandir</h3>
+                </div>
+                <div class="project-body">
+                    <p>Community app for Divyadham Vaghasiya with event management and notifications.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Android</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.divyadham.mandir" target="_blank" class="btn">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-## 📱 Live Projects & Portfolio
+            <!-- Project 6 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>🏪 HB Kirana Store</h3>
+                </div>
+                <div class="project-body">
+                    <p>E-commerce platform delivering freshness and convenience for online grocery shopping.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Android</span>
+                        <span class="tech-tag">E-Commerce</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.mtt.hbkirana" target="_blank" class="btn">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-### 🤖 Android Apps (Google Play)
+            <!-- APK Mods Card -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>🔐 APK Mods & Reverse Engineering</h3>
+                </div>
+                <div class="project-body">
+                    <p>Exclusive APK modifications and reverse engineering projects. Join my Telegram channel!</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">APK Analysis</span>
+                        <span class="tech-tag">Reverse Engineering</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="http://t.me/psmodsapk" target="_blank" class="btn">
+                            <i class="fab fa-telegram"></i> Join Channel
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-<table>
-  <tr>
-    <td width="50%">
-      <h3 align="center">🎯 Ritanya Sanstha</h3>
-      <p align="center">
-        <a href="https://play.google.com/store/apps/details?id=com.ritanyasanstha" target="_blank">
-          <img src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play" />
-        </a>
-      </p>
-      <p align="center">
-        Stay connected with your institute's vibrant community. Features: <strong>Video Calling</strong>, <strong>Firebase Notifications</strong>, Alumni Network
-      </p>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white" />
-        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black" />
-        <img src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=java&logoColor=white" />
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center">💼 Quotation Management</h3>
-      <p align="center">
-        <a href="https://play.google.com/store/apps/details?id=com.quotationapp.quotationapp" target="_blank">
-          <img src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play" />
-        </a>
-        <a href="https://apps.apple.com/us/app/quotation-management/id6745692463" target="_blank">
-          <img src="https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white" alt="App Store" />
-        </a>
-      </p>
-      <p align="center">
-        Platform for managing and comparing car quotations with intuitive UI
-      </p>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Flutter-02569B?style=flat&logo=flutter&logoColor=white" />
-        <img src="https://img.shields.io/badge/Dart-0175C2?style=flat&logo=dart&logoColor=white" />
-        <img src="https://img.shields.io/badge/Cross_Platform-4CAF50?style=flat&logo=flutter&logoColor=white" />
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3 align="center">⚖️ Bar Association Bharatpur</h3>
-      <p align="center">
-        <a href="https://play.google.com/store/apps/details?id=com.mtt.barassociationbharatpur" target="_blank">
-          <img src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play" />
-        </a>
-        <a href="https://apps.apple.com/in/app/bar-association-bharatpur/id6758202475" target="_blank">
-          <img src="https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white" alt="App Store" />
-        </a>
-      </p>
-      <p align="center">
-        Official app for Bar Association Samiti Bharatpur - Circulars & Information
-      </p>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Flutter-02569B?style=flat&logo=flutter&logoColor=white" />
-        <img src="https://img.shields.io/badge/iOS-000000?style=flat&logo=ios&logoColor=white" />
-        <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white" />
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center">🏏 DPS Sports Complex</h3>
-      <p align="center">
-        <a href="https://play.google.com/store/apps/details?id=com.mtt.dpsSportsComplex" target="_blank">
-          <img src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play" />
-        </a>
-        <a href="https://apps.apple.com/in/app/dps-sports-complex/id6751436689" target="_blank">
-          <img src="https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white" alt="App Store" />
-        </a>
-      </p>
-      <p align="center">
-        Sports management and booking platform with real-time updates
-      </p>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Flutter-02569B?style=flat&logo=flutter&logoColor=white" />
-        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black" />
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3 align="center">🕉️ Divyadham Mandir</h3>
-      <p align="center">
-        <a href="https://play.google.com/store/apps/details?id=com.divyadham.mandir" target="_blank">
-          <img src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play" />
-        </a>
-      </p>
-      <p align="center">
-        Android application for Divyadham Vaghasiya community
-      </p>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white" />
-        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black" />
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center">🏪 HB Kirana Store</h3>
-      <p align="center">
-        <a href="https://play.google.com/store/apps/details?id=com.mtt.hbkirana" target="_blank">
-          <img src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play" />
-        </a>
-      </p>
-      <p align="center">
-        Delivering freshness and convenience - Online grocery shopping
-      </p>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white" />
-        <img src="https://img.shields.io/badge/E--Commerce-FF6B6B?style=flat&logo=shopify&logoColor=white" />
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3 align="center">👥 ABSS - Agarwal Community</h3>
-      <p align="center">
-        <a href="https://play.google.com/store/apps/details?id=app.mediatech.aggrabandhu" target="_blank">
-          <img src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play" />
-        </a>
-      </p>
-      <p align="center">
-        Community engagement app for Agarwal Bandhu Social Service
-      </p>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white" />
-        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black" />
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center">🎨 Sanstha Shilpi</h3>
-      <p align="center">
-        <a href="https://play.google.com/store/apps/details?id=com.sanatanshilpi" target="_blank">
-          <img src="https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white" alt="Google Play" />
-        </a>
-      </p>
-      <p align="center">
-        Cultural and creative community platform
-      </p>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white" />
-        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black" />
-      </p>
-    </td>
-  </tr>
-</table>
+            <!-- More Projects Card -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>🔧 More Projects</h3>
+                </div>
+                <div class="project-body">
+                    <p>Explore all my projects including ABSS, Sanstha Shilpi, and many more on my GitHub!</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Pushprajs012?tab=repositories" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> View All
+                        </a>
+                        <a href="https://linktr.ee/pushprajs012" target="_blank" class="btn">
+                            <i class="fas fa-link"></i> Linktree
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-### 🔐 APK Mods & Reverse Engineering
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">📧 Get In Touch</h2>
+        <div class="contact-info">
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+            <a href="mailto:pushprajs012@gmail.com" class="contact-btn">
+                <i class="fas fa-envelope"></i> Email Me
+            </a>
+        </div>
+    </section>
 
-<p align="center">
-  <a href="http://t.me/psmodsapk" target="_blank">
-    <img src="https://img.shields.io/badge/Telegram_Channel-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" />
-  </a>
-</p>
-<p align="center">
-  <strong>Join my Telegram channel</strong> to download my exclusive APK mods and modifications! 🚀
-</p>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Pushpraj Singh. Made with ❤️ and lots of ☕</p>
+        <p>
+            <a href="https://github.com/Pushprajs012" style="color: #00d9ff; text-decoration: none;">GitHub</a> | 
+            <a href="https://linktr.ee/pushprajs012" style="color: #00d9ff; text-decoration: none;">Linktree</a>
+        </p>
+    </footer>
 
-### 🌐 All My Links
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-<p align="center">
-  <a href="https://linktr.ee/pushprajs012" target="_blank">
-    <img src="https://img.shields.io/badge/Linktree-39E09B?style=for-the-badge&logo=linktree&logoColor=white" alt="Linktree" />
-  </a>
-</p>
-<p align="center">
-  Visit my Linktree for all projects, social profiles, and ways to connect! 🔗
-</p>
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
----
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
 
-## 🛠️ Tech Stack & Tools
-
-### 📱 Mobile Development
-<p align="left">
-  <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" />
-  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
-  <img src="https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin" />
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
-  <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" />
-</p>
-
-### 🔧 Backend & Database
-<p align="left">
-  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase" />
-  <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-  <img src="https://img.shields.io/badge/REST_API-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="REST API" />
-</p>
-
-### 🎨 Tools & Technologies
-<p align="left">
-  <img src="https://img.shields.io/badge/Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white" alt="Android Studio" />
-  <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" />
-</p>
-
-### 🔐 Reverse Engineering & Analysis
-<p align="left">
-  <img src="https://img.shields.io/badge/APK_Analysis-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="APK Analysis" />
-  <img src="https://img.shields.io/badge/Decompiling-FF6B6B?style=for-the-badge&logo=code&logoColor=white" alt="Decompiling" />
-  <img src="https://img.shields.io/badge/Security_Testing-4CAF50?style=for-the-badge&logo=security&logoColor=white" alt="Security" />
-</p>
-
----
-
-## 📊 GitHub Statistics
-
-<p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=pushprajs012&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF" alt="GitHub Stats" />
-  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=pushprajs012&theme=radical&hide_border=true&background=0D1117&ring=00D9FF&fire=00D9FF&currStreakLabel=00D9FF" alt="GitHub Streak" />
-</p>
-
-<p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs?username=pushprajs012&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF" alt="Top Languages" />
-  <img width="49%" src="https://github-readme-activity-graph.vercel.app/graph?username=pushprajs012&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20Graph" alt="Contribution Graph" />
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=pushprajs012&theme=radical&no-frame=true&no-bg=true&margin-w=4&row=1" alt="GitHub Trophies" />
-</p>
-
----
-
-## 🤝 Connect With Me
-
-<p align="center">
-  <a href="https://linktr.ee/pushprajs012" target="_blank">
-    <img src="https://img.shields.io/badge/Linktree-39E09B?style=for-the-badge&logo=linktree&logoColor=white" alt="Linktree" />
-  </a>
-  <a href="https://linkedin.com/in/pushprajs012" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="https://twitter.com/pushprajs012" target="_blank">
-    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" />
-  </a>
-  <a href="https://github.com/pushprajs012" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  </a>
-  <a href="mailto:pushprajs012@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-</p>
-
----
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer&fontSize=0" alt="Footer" />
-</p>
-
-<p align="center">
-  <i>⭐️ From <a href="https://github.com/pushprajs012">Pushpraj Singh</a> | Made with ❤️ and lots of ☕</i>
-</p>
+        document.querySelectorAll('.skill-card, .project-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
